@@ -22,13 +22,22 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
-    //端口号  查看负载均衡效果
+    /**
+     * 端口号
+     * 查看负载均衡的效果
+     */
     @Value("${server.port}")
     private String serverPort;
 
-    //服务发现   获取服务信息
+    /**
+     *  @Autowired 和 @Resource 的区别
+     * 1. @Autowired    由spring提供，只按照byType注入
+     * 2. @Resource     由J2EE提供，默认是按照byName自动注入
+     */
+    //服务发现获取服务信息
     @Autowired
     private DiscoveryClient discoveryClient;
+
 
     @PostMapping("/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
@@ -52,18 +61,12 @@ public class PaymentController {
         }
     }
 
-    /**
-     * 服务发现
-     *
-     * @return
-     */
     @GetMapping("/payment/discovery")
     public Object discovery(){
-        List<String> list = discoveryClient.getServices();
-        for (String element : list) {
-            log.info(element);
+        List<String> services = discoveryClient.getServices();
+        for (String item : services) {
+            log.info(item);
         }
-        //一个微服务下的全部实例
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         for (ServiceInstance instance : instances) {
             log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());

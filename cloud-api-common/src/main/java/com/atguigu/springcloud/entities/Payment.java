@@ -4,17 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor  //全参构造器
 @NoArgsConstructor  //无参构造器
-public class CommonResult<T> {
+public class Payment implements Serializable {
 
-    private Integer code;
-    private String message;
-    private T data;
-
-    public CommonResult(Integer code,String message){
-        this(code,message,null);
-    }
-
+    private Long id;
+    private String serial;
 }
