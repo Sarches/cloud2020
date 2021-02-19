@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-providerconsul-payment8006</artifactId>
-
+    <artifactId>cloud-consumerconsul-order80</artifactId>
 
 
     <dependencies>
@@ -24,15 +23,16 @@
             <artifactId>cloud-api-common</artifactId>
             <!--<version>${project.version}</version>-->
         </dependency>
-        <!--SpringBoot整合 Web组件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--热部署-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
