@@ -3,7 +3,8 @@ server:
 
 spring:
   application:
-    name: cloud-payment-service
+    name: CLOUD-PAYMENT-SERVICE
+  #    name: cloud-payment-service
 
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
