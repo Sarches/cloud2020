@@ -53,11 +53,7 @@ public class PaymentController {
         }
     }
 
-    /**
-     * 服务发现
-     *
-     * @return
-     */
+    //服务发现
     @GetMapping("/payment/discovery")
     public Object discovery() {
         List<String> list = discoveryClient.getServices();
@@ -81,9 +77,9 @@ public class PaymentController {
 
     //服务提供方8001故意写暂停程序
     @GetMapping("/payment/feign/timeout")
-    public String paymentFeignTimeout(){
+    public String paymentFeignTimeout() {
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
